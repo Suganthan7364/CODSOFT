@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class Atmachine{
+private static int balance = 100000;
+public static void main(String args[]){
+    Scanner s = new Scanner(System.in);
+while (true) {
+            System.out.println("ATM Interface");
+            System.out.println("Operation 1 for Withdraw");
+            System.out.println("Operation 2 for Deposit");
+            System.out.println("Operation 3 for Check Balance");
+            System.out.println("Operation 4 for Exit");
+            System.out.print("Choose the operation to perform:");
+    int choice = s.nextInt();
+
+switch (choice) {
+
+case 1:
+withdraw(s);
+break;
+                
+case 2:
+deposit(s);
+break;
+                
+case 3:
+checkBalance();
+break;
+                
+case 4:
+System.exit(0);
+           
+}
+  }
+    }
+private static void withdraw(Scanner s) {
+        System.out.print("Enter money to be withdrawn:");
+        int withdrawAmount = s.nextInt();
+
+if (balance >= withdrawAmount) {
+            balance -= withdrawAmount;
+            System.out.println("\nTransaction Withdrawals is completed:");
+        } 
+else {
+            System.out.println("Insufficient Balance");
+            System.out.println("/nTransaction is Failed due to Insufficient fund:");
+        }
+            System.out.println();
+    }
+
+private static void deposit(Scanner s) {
+        System.out.print("Enter money to be deposited:");
+        int depositAmount = s.nextInt();
+        balance += depositAmount;
+        System.out.println("\nSuccessfully deposited");
+        System.out.println();
+    }
+
+private static void checkBalance() {
+        System.out.println("Balance : " + balance);
+        System.out.println();
+    }
+}
